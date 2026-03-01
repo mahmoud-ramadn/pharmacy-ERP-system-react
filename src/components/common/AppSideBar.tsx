@@ -10,8 +10,7 @@ import {
   IconFileWord,
   IconFolder,
   IconHelp,
-  IconInnerShadowTop,
-  IconListDetails,
+  IconPackage,
   IconReport,
   IconSearch,
   IconSettings,
@@ -28,7 +27,6 @@ import {
   SidebarFooter,
   SidebarHeader,
   SidebarMenu,
-  SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import { Store } from "lucide-react";
@@ -46,9 +44,9 @@ const data = {
       icon: () => <Store />,
     },
     {
-      title: "Lifecycle",
-      url: "#",
-      icon: IconListDetails,
+      title: "إدارة الموردين",
+      url: "supplier",
+      icon: IconPackage,
     },
     {
       title: "Analytics",
@@ -155,16 +153,16 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     <Sidebar side="right" collapsible="offcanvas" {...props}>
       <SidebarHeader>
         <SidebarMenu>
-          <SidebarMenuItem>
-            <SidebarMenuButton
-              asChild
-              className="data-[slot=sidebar-menu-button]:!p-1.5"
+          <SidebarMenuItem className=" flex items-center justify-center  overflow-hidden   size-20 mx-auto  rounded-full">
+            <a
+              href="#"
             >
-              <a href="#">
-                <IconInnerShadowTop className="!size-5" />
-                <span className="text-base font-semibold">Acme Inc.</span>
-              </a>
-            </SidebarMenuButton>
+              <img
+                src="/logo.webp"
+                alt="Acme Inc."
+                className="object-cover  w-auto"
+              />
+            </a>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>

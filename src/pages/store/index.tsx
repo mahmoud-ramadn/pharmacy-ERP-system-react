@@ -30,9 +30,8 @@ import {
   AlertTriangle,
   DollarSign,
 } from "lucide-react";
-import { Link } from "react-router";
-
-export default function Store() {
+import { Link } from "react-router-dom";
+export default function Index() {
   const [searchTerm, setSearchTerm] = useState("");
 
   // ستقوم لاحقًا بجلب البيانات الحقيقية من API
@@ -47,7 +46,6 @@ export default function Store() {
     }).format(price);
   };
 
-  // عرض حالة المخزون كشارة ملونة
   const renderStockAlert = (status: string) => {
     const variants: Record<string, string> = {
       متوفر: "bg-green-100 text-green-800 hover:bg-green-100",
@@ -61,7 +59,6 @@ export default function Store() {
     );
   };
 
-  // حساب إحصائيات سريعة
   const totalMedicines = medicines.length;
   const lowStockCount = medicines.filter(
     (m) => m.stockAlert === "قرب النفاد",

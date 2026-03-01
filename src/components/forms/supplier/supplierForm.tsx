@@ -44,16 +44,16 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useNavigate } from "react-router";
-import { medicineSchema, type MedicineForm } from "./scham";
+import { supplierSchema, type SupplierForm } from "./sham";
 
-interface MedicineFormsProps {
+interface SupplierFormsProps {
   id?: string;
 }
 
-export default function MedicineForms({ id }: Readonly<MedicineFormsProps>) {
+export default function SupplierForm({ id }: Readonly<SupplierFormsProps>) {
   const nav = useNavigate();
-  const form = useForm<MedicineForm>({
-    resolver: zodResolver(medicineSchema) as unknown as Resolver<MedicineForm>,
+  const form = useForm<SupplierForm>({
+    resolver: zodResolver(supplierSchema) as unknown as Resolver<SupplierForm>,
     defaultValues: {
       name: "",
       category: "",
@@ -65,12 +65,12 @@ export default function MedicineForms({ id }: Readonly<MedicineFormsProps>) {
     },
   });
 
-  const onSubmit: SubmitHandler<MedicineForm> = (data) => {
+  const onSubmit: SubmitHandler<SupplierForm> = (data: SupplierForm) => {
     console.log("Medicine created:", data);
     toast.success("تم إضافة الدواء بنجاح", {
       description: `تم حفظ ${data.name} في قاعدة البيانات.`,
     });
-    nav("/store");
+    nav("/supplier");
   };
 
   return (
@@ -80,9 +80,7 @@ export default function MedicineForms({ id }: Readonly<MedicineFormsProps>) {
           <div className="flex items-center gap-2">
             <Package className="h-6 w-6 text-primary" />
             <CardTitle className="text-2xl font-bold">
-              {
-                id ? "تعديل دواء" : "إضافة دواء جديد"
-              }
+              {id ? "تعديل دواء" : "إضافة دواء جديد"}
             </CardTitle>
           </div>
           <CardDescription>
@@ -94,7 +92,6 @@ export default function MedicineForms({ id }: Readonly<MedicineFormsProps>) {
         <form id="create-medicine-form" onSubmit={form.handleSubmit(onSubmit)}>
           <CardContent className="pt-6">
             <FieldGroup className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* اسم المنتج */}
               <Controller
                 name="name"
                 control={form.control}
@@ -113,7 +110,11 @@ export default function MedicineForms({ id }: Readonly<MedicineFormsProps>) {
                     <Input
                       id="medicine-name"
                       placeholder="مثال: أموكسيسيلين"
-                      className={`h-10 ${fieldState.invalid ? "border-red-500 focus-visible:ring-red-500" : ""}`}
+                      className={`h-10 ${
+                        fieldState.invalid
+                          ? "border-red-500 focus-visible:ring-red-500"
+                          : ""
+                      }`}
                       aria-invalid={fieldState.invalid}
                       {...field}
                     />
@@ -124,8 +125,6 @@ export default function MedicineForms({ id }: Readonly<MedicineFormsProps>) {
                   </Field>
                 )}
               />
-
-              {/* الفئة */}
               <Controller
                 name="category"
                 control={form.control}
@@ -148,7 +147,11 @@ export default function MedicineForms({ id }: Readonly<MedicineFormsProps>) {
                     >
                       <SelectTrigger
                         id="medicine-category"
-                        className={`h-10 ${fieldState.invalid ? "border-red-500 focus-visible:ring-red-500" : ""}`}
+                        className={`h-10 ${
+                          fieldState.invalid
+                            ? "border-red-500 focus-visible:ring-red-500"
+                            : ""
+                        }`}
                         aria-invalid={fieldState.invalid}
                       >
                         <SelectValue placeholder="اختر الفئة" />
@@ -174,7 +177,6 @@ export default function MedicineForms({ id }: Readonly<MedicineFormsProps>) {
                 )}
               />
 
-              {/* الكمية والسعر في صف واحد */}
               <FieldSet className="md:col-span-2">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <Controller
@@ -196,7 +198,11 @@ export default function MedicineForms({ id }: Readonly<MedicineFormsProps>) {
                           id="medicine-quantity"
                           type="number"
                           min={0}
-                          className={`h-10 ${fieldState.invalid ? "border-red-500 focus-visible:ring-red-500" : ""}`}
+                          className={`h-10 ${
+                            fieldState.invalid
+                              ? "border-red-500 focus-visible:ring-red-500"
+                              : ""
+                          }`}
                           placeholder="0"
                           aria-invalid={fieldState.invalid}
                           {...field}
@@ -228,7 +234,11 @@ export default function MedicineForms({ id }: Readonly<MedicineFormsProps>) {
                           type="number"
                           min={0}
                           step="0.01"
-                          className={`h-10 ${fieldState.invalid ? "border-red-500 focus-visible:ring-red-500" : ""}`}
+                          className={`h-10 ${
+                            fieldState.invalid
+                              ? "border-red-500 focus-visible:ring-red-500"
+                              : ""
+                          }`}
                           placeholder="0.00"
                           aria-invalid={fieldState.invalid}
                           {...field}
@@ -259,7 +269,11 @@ export default function MedicineForms({ id }: Readonly<MedicineFormsProps>) {
                     <Input
                       id="medicine-expiry"
                       type="date"
-                      className={`h-10 ${fieldState.invalid ? "border-red-500 focus-visible:ring-red-500" : ""}`}
+                      className={`h-10 ${
+                        fieldState.invalid
+                          ? "border-red-500 focus-visible:ring-red-500"
+                          : ""
+                      }`}
                       aria-invalid={fieldState.invalid}
                       {...field}
                     />
@@ -290,7 +304,11 @@ export default function MedicineForms({ id }: Readonly<MedicineFormsProps>) {
                     <Input
                       id="medicine-supplier"
                       placeholder="مثال: شركة النيل للأدوية"
-                      className={`h-10 ${fieldState.invalid ? "border-red-500 focus-visible:ring-red-500" : ""}`}
+                      className={`h-10 ${
+                        fieldState.invalid
+                          ? "border-red-500 focus-visible:ring-red-500"
+                          : ""
+                      }`}
                       aria-invalid={fieldState.invalid}
                       {...field}
                     />
@@ -327,7 +345,11 @@ export default function MedicineForms({ id }: Readonly<MedicineFormsProps>) {
                     >
                       <SelectTrigger
                         id="medicine-stock"
-                        className={`h-10 ${fieldState.invalid ? "border-red-500 focus-visible:ring-red-500" : ""}`}
+                        className={`h-10 ${
+                          fieldState.invalid
+                            ? "border-red-500 focus-visible:ring-red-500"
+                            : ""
+                        }`}
                         aria-invalid={fieldState.invalid}
                       >
                         <SelectValue placeholder="اختر الحالة" />
@@ -357,9 +379,7 @@ export default function MedicineForms({ id }: Readonly<MedicineFormsProps>) {
               className="h-10 gap-2"
             >
               <Save className="h-4 w-4" />
-                    {
-                      id ? "تعديل الدواء" : "إضافة الدواء"
-                    }
+              {id ? "تعديل الدواء" : "إضافة الدواء"}
             </Button>
             <Button
               type="button"

@@ -1,6 +1,6 @@
 import z from "zod";
 
-export const medicineSchema = z.object({
+export const supplierSchema = z.object({
   name: z
     .string({ error: "اسم المنتج مطلوب" })
     .min(2, "يجب أن يكون الاسم على الأقل حرفين"),
@@ -32,5 +32,5 @@ export const medicineSchema = z.object({
     .string({ error: "حالة المخزون مطلوبة" })
     .min(1, "يرجى اختيار حالة المخزون"),
 });
-  
-export type MedicineForm = z.infer<typeof medicineSchema>;
+
+export type SupplierForm = z.infer<typeof supplierSchema>;
