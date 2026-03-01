@@ -47,10 +47,7 @@ export default function TheHeader() {
       <div className="flex w-full  container mx-auto  py-3 items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="hidden lg:block">
-            <h1 className="text-lg font-semibold">Pharmacy Dashboard</h1>
-            <p className="text-xs text-muted-foreground">
-              Main Street Pharmacy
-            </p>
+            <img src="/logo.webp" alt="Pharmacy Dashboard" className=" size-20 object-cover" />
           </div>
         </div>
 
