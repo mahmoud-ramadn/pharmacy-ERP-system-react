@@ -42,7 +42,7 @@ export default function TheHeader() {
   });
 
   return (
-    <header className="sticky  top-0 z-20  flex items-center  border-b bg-background px-4 shadow-sm">
+    <header className="sticky  top-0 z-20  flex items-center  border-b bg-background px-4">
       <SidebarTrigger />
       <div className="flex w-full  container mx-auto  py-3 items-center justify-between">
         <div className="flex items-center gap-3">

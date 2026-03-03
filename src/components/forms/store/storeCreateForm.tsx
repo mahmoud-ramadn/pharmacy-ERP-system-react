@@ -75,7 +75,7 @@ export default function MedicineForms({ id }: Readonly<MedicineFormsProps>) {
 
   return (
     <div className="container mx-auto py-8 px-4 md:px-6" dir="rtl">
-      <Card className="max-w-4xl mx-auto shadow-lg border-0">
+      <Card className="max-w-4xl mx-auto  border-0">
         <CardHeader className="bg-gradient-to-r from-primary/10 to-primary/5 rounded-t-lg border-b">
           <div className="flex items-center gap-2">
             <Package className="h-6 w-6 text-primary" />
